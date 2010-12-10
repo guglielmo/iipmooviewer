@@ -13,7 +13,7 @@
   <meta http-Equiv="Pragma" Content="no-cache">
   <meta http-Equiv="Expires" Content="0">
 
-  <link rel="stylesheet" type="text/css" media="all" href="css/iip.compressed.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="css/iip.css" />
   <link rel="shortcut icon" href="images/iip-favicon.png" />
   <title><?php echo urldecode($_GET["img_path"]) . $_GET["img_name"]?></title>
 
@@ -41,15 +41,42 @@
   		server: server,
   		zoom: 1,
   		render: 'random',
-      showNavButtons: false
+      showNavButtons: true
     });
 
+
+    window.addEvent('domready', function() {
+      url = window.location;
+      $('zoomin').addEvent('click', function(event) {
+        iip.zoomIn();
+    	});
+      $('zoomout').addEvent('click', function(event) {
+        iip.zoomOut();
+    	});
+      $('reset').addEvent('click', function() {
+        window.location.reload();
+      });
+    });
   </script>
 
  </head>
 
  <body>
-   <div style="width:98%;height:98%;margin-left:auto;margin-right:auto" id="targetframe"></div>
+   <div style="position: absolute; right: 1%">
+     <ul style="list-style-type:none; width: 25px; text-align: center">
+       <li>
+         <a href="#" id="zoomin"><img src="images/zoomInColor.png" alt="zoomin" title="ingrandimento" border="0"/></a>       
+       </li>
+       <li>
+         <a href="#" id="zoomout"><img src="images/zoomOutColor.png" alt="zoomout" title="riduzione" border="0" /></a>       
+       </li>
+       <li>
+         <a href="#" id="reset"><img src="images/resetColor.png" alt="reset" title="dimensioni originali" border="0" /></a>       
+       </li>
+       
+     </ul>      
+   </div>
+   <div style="width:94%; height:98%; margin-left:auto;margin-right:auto" id="targetframe"></div>
  </body>
 
 </html>

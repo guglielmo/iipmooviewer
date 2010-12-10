@@ -12,7 +12,7 @@ div#targetframe {
 div#navcontainer {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 1000px;
   z-index: 2;
   text-align: center;
   background: transparent;
