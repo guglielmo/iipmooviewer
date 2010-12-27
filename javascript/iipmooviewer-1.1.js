@@ -726,7 +726,7 @@ var IIP = new Class({
 
 
         el.injectInside(this.source);
-        el.addEvent('mousewheel', this.zoom.bind(this));
+        // el.addEvent('mousewheel', this.zoom.bind(this));
         el.addEvent('dblclick', this.zoom.bind(this));
         if (this.targetclick) el.addEvent('click', this.targetclick.bindWithEvent(this));
 
@@ -941,8 +941,8 @@ var IIP = new Class({
 
         // Add our events
         $('navigation').addEvent('click', this.scrollNavigation.bindWithEvent(this));
-        $('navigation').addEvent('mousewheel', this.zoom.bindWithEvent(this));
-        $('zone').addEvent('mousewheel', this.zoom.bindWithEvent(this));
+        // $('navigation').addEvent('mousewheel', this.zoom.bindWithEvent(this));
+        // $('zone').addEvent('mousewheel', this.zoom.bindWithEvent(this));
         $('zone').addEvent('dblclick', this.zoom.bindWithEvent(this));
 
     },
