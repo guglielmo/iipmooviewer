@@ -31,6 +31,7 @@
     // the "c:" prefix
     var image_path = '<?php echo $_GET["img_path"]?>';
     var image_name = '<?php echo $_GET["img_name"]?>';
+    var collection = '<?php echo $_GET["collection"]?>';
     var image_file = image_path + image_name;
 
     // Copyright or information message (optional)
@@ -56,7 +57,7 @@
   		var json_request = new Request.JSON({
   			url: "page_turner_json.php",
   			method: 'post',
-  			data: { path: image_path, name: image_name},
+  			data: { path: image_path, name: image_name, collection: collection },
   			onComplete: function(jsonObj) {
   				next_page_url = jsonObj.pages.next_page_url;
   				prev_page_url = jsonObj.pages.prev_page_url;
