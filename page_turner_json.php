@@ -2,7 +2,8 @@
 $iip_viewer_host = 'http://iipimageviewer/viewimg.php';
 $image_path = $_POST["path"];
 $image_name = str_replace('.', ':', $_POST["name"]);
-$page_turner_service_url = "http://abiblita/page_turner/$image_name";
+$collection = $_POST["collection"];
+$page_turner_service_url = "http://abiblita/frontend_dev.php/page_turner/$image_name/$collection";
 $xml_obj = simplexml_load_file($page_turner_service_url);
 
 $next_page = (string)$xml_obj->next_page;
