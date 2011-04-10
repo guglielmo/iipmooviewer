@@ -26,10 +26,23 @@ if ($collection == 'incunaboli') {
   $prev_page = substr($prev_page, $l);
 }
 
+# sostituisce l'estensione jpeg con .tif nelle url delle
+# prev e next
+list($next_name, $next_ext) = explode(".", $next_page);
+list($prev_name, $prev_ext) = explode(".", $prev_page);
+if ($collection == 'orlando' || $collection == 'cortegiano') {
+  $next_name = strtoupper($next_name);
+  $prev_name = strtoupper($prev_name);
+}
+$next_page = sprintf("%s.%s", $next_name, 'tif');
+$prev_page = sprintf("%s.%s", $prev_name, 'tif');
+
+
+
 $pages_urls = array(
-  'current_page'  => "$iip_viewer_host?img_path=$image_path&img_name=$current_page",
-  'next_page_url' => "$iip_viewer_host?img_path=$image_path&img_name=$next_page",
-  'prev_page_url' => "$iip_viewer_host?img_path=$image_path&img_name=$prev_page",
+  'current_page'  => "$iip_viewer_host?img_path=$image_path&img_name=$current_page&collection=$collection",
+  'next_page_url' => "$iip_viewer_host?img_path=$image_path&img_name=$next_page&collection=$collection",
+  'prev_page_url' => "$iip_viewer_host?img_path=$image_path&img_name=$prev_page&collection=$collection",
 );
 $pages_urls_json = json_encode(array('pages' => $pages_urls));
 echo $pages_urls_json;
