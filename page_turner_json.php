@@ -38,6 +38,7 @@ $next_page = sprintf("%s.%s", $next_name, 'tif');
 $prev_page = sprintf("%s.%s", $prev_name, 'tif');
 
 
+
 $pages_urls = array(
   'current_page'  => "$iip_viewer_host?img_path=$image_path&img_name=$current_page&collection=$collection",
   'next_page_url' => "$iip_viewer_host?img_path=$image_path&img_name=$next_page&collection=$collection",
